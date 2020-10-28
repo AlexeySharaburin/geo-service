@@ -1,5 +1,7 @@
 package ru.netology.entity;
 
+import java.util.Objects;
+
 public class Location {
 
     private final String city;
@@ -29,7 +31,33 @@ public class Location {
         return street;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Location)) return false;
+        Location location = (Location) o;
+        return builing == location.builing &&
+                Objects.equals(city, location.city) &&
+                country == location.country &&
+                Objects.equals(street, location.street);
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
     public int getBuiling() {
         return builing;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Location{" +
+//                "city='" + city + '\'' +
+//                ", country=" + country +
+//                ", street='" + street + '\'' +
+//                ", builing=" + builing +
+//                '}';
+//    }
 }
